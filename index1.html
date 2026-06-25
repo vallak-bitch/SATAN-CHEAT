@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Under Maintenance</title>
+    <style>
+        /* Reset Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            background-color: #111;
+            color: #fff;
+        }
+
+        /* Container Utama untuk Video Grafis Background */
+        .video-background {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Overlay Gelap agar Teks Mudah Dibaca */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65); /* Menggelapkan video background */
+            backdrop-filter: blur(4px); /* Efek blur halus pada grafis video */
+            z-index: -50;
+        }
+
+        /* Konten Halaman */
+        .maintenance-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            padding: 20px;
+        }
+
+        /* Animasi Pulsasi untuk Ikon/Grafis */
+        .icon-box {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ff7b00, #ffae00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        /* Indikator Loading / Progress Bar */
+        .progress-bar-container {
+            width: 250px;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 50%; /* Sesuaikan tingkat progress saat ini */
+            background: linear-gradient(90deg, #ff7b00, #ffae00);
+            border-radius: 10px;
+            animation: progress-animation 3s infinite ease-in-out;
+        }
+
+        .status-text {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffae00;
+        }
+
+        /* Keyframes Animasi */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        @keyframes progress-animation {
+            0% { width: 0%; left: 0; }
+            50% { width: 100%; }
+            100% { width: 0%; float: right; }
+        }
+
+        /* Responsif untuk Smartphone */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            p { font-size: 1rem; }
+            .icon-box { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-background">
+        <video autoplay loop muted playsinline>
+            <source src="background.mp4" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
+        </video>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="maintenance-container">
+        <div class="icon-box">🛠️</div>
+        <h1>Under Maintenance</h1>
+        <p>We are performing system updates to provide you with the best experience. We’ll be back soon!</p>
+        
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill"></div>
+        </div>
+        
+        <div class="status-text">Optimizing the System...</div>
+    </div>
+
+</body>
+</html>
